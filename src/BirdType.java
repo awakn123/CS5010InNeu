@@ -5,10 +5,10 @@ public class BirdType {
     private Classification classification;
 
     public BirdType(String name, boolean extinct, int numberOfWings, Classification classification){
-        name = this.name;
-        extinct= this.extinct;
-        numberOfWings = this.numberOfWings;
-        classification=this.classification;
+        this.name = name;
+        this.extinct= extinct;
+        this.numberOfWings = numberOfWings;
+        this.classification=classification;
     }
 
     public String getTypeName(){
