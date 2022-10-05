@@ -25,4 +25,20 @@ public class Bird {
         return foodList;
     }
 
+    public void eat(String food) {
+        //todo
+    }
+
+    public void setFavorite(String favorite) {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a parrot.");
+    }
+
+    public void setVocabulary(List<String> vocabulary) {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a parrot.");
+    }
+
+    public void setWaterBody(String waterBody) {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a shorebird or waterfowl.");
+    }
+
 }
