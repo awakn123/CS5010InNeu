@@ -14,7 +14,8 @@ public class BirdTypeTest {
 
     @org.junit.Test
     public void getClassification() {
-        //assertEquals( , birdtype.isExtinct());return Classification.BirdsOfPrey.;
+        assertEquals( "BirdsOfPrey", birdtype.getTypeName());
+        assertEquals( "Birds of prey all have sharp, hooked beaks with visible nostrils. They include hawks, eagles, and osprey.", birdtype.getTypeCharacteristic());
     }
 
     @org.junit.Test

@@ -11,9 +11,14 @@ public class BirdType {
         classification=this.classification;
     }
 
-    public Classification getClassification(){
-        return this.classification;
+    public String getTypeName(){
+        return this.classification.getClassificationName();
     }
+
+    public String getTypeCharacteristic(){
+        return this.classification.getClassificationCharacteristic();
+    }
+
 
     public boolean isExtinct (){
         return this.extinct;
