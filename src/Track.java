@@ -15,8 +15,15 @@ public class Track {
     }
 
     public int observeNewBird(BirdType birdType) {
-        // TODO handle Parrot
-        Bird bird = new Bird(birdType);
+        Bird bird;
+        if (Classification.Parrots.equals(birdType.getClassification())) {
+            bird = new Parrot(birdType);
+        } else if (Classification.Shorebirds.equals(birdType.getClassification()) ||
+            Classification.Waterfowl.equals(birdType.getClassification())) {
+            bird = new WaterBird(birdType);
+        } else {
+            bird = new Bird(birdType);
+        }
         birdMap.put(bird.getId(), bird);
         return bird.getId();
     }

@@ -26,7 +26,19 @@ public class Bird {
     }
 
     public void eat(String food) {
-        //todo
+        Food foodEnum = Food.valueOf(food);
+        if (foodList.contains(foodEnum)) {
+            return;
+        }
+        foodList.add(foodEnum);
+    }
+
+    public List<String> getVocabulary() {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a parrot.");
+    }
+
+    public String getFavorite() {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a parrot.");
     }
 
     public void setFavorite(String favorite) {
@@ -37,6 +49,9 @@ public class Bird {
         throw new IllegalCallerException("The id:" + id + " does not refer to a parrot.");
     }
 
+    public String getWaterBody() {
+        throw new IllegalCallerException("The id:" + id + " does not refer to a shorebird or waterfowl.");
+    }
     public void setWaterBody(String waterBody) {
         throw new IllegalCallerException("The id:" + id + " does not refer to a shorebird or waterfowl.");
     }

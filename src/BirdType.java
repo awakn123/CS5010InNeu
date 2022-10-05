@@ -19,6 +19,10 @@ public class BirdType {
         return this.classification.getClassificationCharacteristic();
     }
 
+    public Classification getClassification() {
+        return this.classification;
+    }
+
 
     public boolean isExtinct (){
         return this.extinct;
