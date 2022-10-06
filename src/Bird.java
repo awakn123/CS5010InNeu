@@ -2,15 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bird {
+    private static int maxId = 1;
     private int id;
     private BirdType birdType;
     private List<Food> foodList = new ArrayList<>();
-    private static int maxId = 1;
+    private String name;
+    private String description;
+    private Aviary aviary;
 
     public Bird(BirdType birdType) {
         this.birdType = birdType;
         this.id = maxId;
         maxId++;
+    }
+    public Bird(String name, BirdType birdType) {
+        this.birdType = birdType;
+        this.id = maxId;
+        maxId++;
+        this.name = name;
     }
 
     public int getId() {
@@ -23,6 +32,10 @@ public class Bird {
 
     public List<Food> getFoodList() {
         return foodList;
+    }
+
+    public void setFoodList(List<Food> foodList) {
+        this.foodList = foodList;
     }
 
     public void eat(String food) {
@@ -56,4 +69,23 @@ public class Bird {
         throw new IllegalCallerException("The id:" + id + " does not refer to a shorebird or waterfowl.");
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Aviary getAviary() {
+        return aviary;
+    }
+
+    public void setAviary(Aviary aviary) {
+        this.aviary = aviary;
+    }
 }
