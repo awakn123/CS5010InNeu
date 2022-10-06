@@ -13,12 +13,28 @@ public class Conservatory {
         return getFoodTypeQuantities();
     }
 
-    public String printSign(Aviary aviary) {
-        return null;
+    public List<Aviary> getAviaryList(){
+        return aviaryList;
     }
 
-    public String printMap() {
-        return null;
+    public Map printSign(Aviary aviary) {
+        Map<String, String> birdInformation = new HashMap<>();
+        for (int i = 0; i < aviary.getBirdList().size(); i++) {
+            birdInformation.put(String.valueOf(aviary.getBirdList().get(i)),aviary.getBirdList().get(i).getDescription());
+        }
+        return birdInformation;
+    }
+
+    public String printMap(Conservatory conservatory) {
+        Map<String, String> aviaryInformation = new HashMap<>();
+        //location+birds
+        String s ="";
+        for (int i = 0; i < conservatory.getAviaryList().size(); i++) {
+            aviaryInformation.put(String.valueOf(conservatory.getAviaryList().get(i)),
+                    "Location is " + String.valueOf(conservatory.getAviaryList().get(i).getLocation())+
+                            ", Birds in this aviary are "+conservatory.getAviaryList().get(i).printBirdList());
+        }
+        return s;
     }
 
     public String printIndex() {

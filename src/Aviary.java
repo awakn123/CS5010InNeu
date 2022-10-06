@@ -37,6 +37,8 @@ public class Aviary {
         this.type = type;
     }
 
+
+
     /**
      * Try to add the bird into this aviary.
      * If the aviary is full(size >=5), will return false;
@@ -71,4 +73,14 @@ public class Aviary {
         bird.setAviary(this);
         return true;
     }
+
+    public String printBirdList(){
+        String s ="";
+        for (int i = 0; i < birdList.size(); i++) {
+            s = s +", "+ String.valueOf(birdList.get(i));
+        }
+        return s;
+    }
+
+
 }
