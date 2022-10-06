@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Conservatory {
 
-    private List<Aviary> aviaryList = new ArrayList<>();
+    public List<Aviary> aviaryList = new ArrayList<>();
 
-    private Map<Food, Integer> foodTypeQuantities = new HashMap<>();
+    public Map<Food, Integer> foodTypeQuantities = new HashMap<>();
 
     public Map<Food, Integer> getFoodTypeQuantities() {
         return getFoodTypeQuantities();
