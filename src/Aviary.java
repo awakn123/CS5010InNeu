@@ -54,10 +54,8 @@ public class Aviary {
             if (this.type == null) {
                 this.birdList.add(bird);
                 this.type = bird.getBirdType().getClassification().getClassificationName();
-                return true;
             } else if (this.type.equals(bird.getBirdType().getClassification().getClassificationName())) {
                 this.birdList.add(bird);
-                return true;
             } else {
                 return false;
             }
@@ -66,9 +64,11 @@ public class Aviary {
             if (this.type == null || CAN_MIXED.equals(this.type)) {
                 this.birdList.add(bird);
                 this.type = CAN_MIXED;
-                return true;
+            } else {
+                return false;
             }
         }
-        return false;
+        bird.setAviary(this);
+        return true;
     }
 }
