@@ -15,6 +15,7 @@ public class ConservatoryRescue {
         }
         for (Aviary aviary: aviaryList) {
             if (aviary.addBird(bird)) {
+                this.addFoodType(bird);
                 return true;
             }
         }
@@ -22,8 +23,15 @@ public class ConservatoryRescue {
             Aviary aviary = new Aviary("The aviary locates in number " + aviaryList.size());
             aviary.addBird(bird);
             aviaryList.add(aviary);
+            this.addFoodType(bird);
             return true;
         }
         return false;
+    }
+
+    private void addFoodType(Bird bird) {
+        bird.getFoodList().stream().forEach((food) -> {
+            foodTypeQuantities.put(food, foodTypeQuantities.getOrDefault(food, 0) + 1);
+        });
     }
 }
