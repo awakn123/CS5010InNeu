@@ -12,7 +12,7 @@ public class ConservatoryRescue {
      * If not, try to add the bird into each existed aviary, {@link Aviary#addBird(Bird) the aviary principle}.
      * If all aviaries fail, try to add a new aviary if the number of aviaries is less than 20.
      * If fails too, we cannot rescue it, return false;
-     * If succeed, will add food type into the food type quantities.
+     * If succeeded, will add food type into the food type quantities.
      * @param bird the bird that we want to rescue.
      * @return whether we rescue the bird successfully.
      */
