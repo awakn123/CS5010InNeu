@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -108,10 +110,32 @@ public class ConservatoryRescueTest {
 
     /**
      * 1. rescue a bird need 1 berry, check food type quantities should only have one berry.
+     * 2. rescue a bird need 1 berry and 1 seed, check quantities, should have berry: 2, seed: 1.
      */
     @Test
     public void getFoodTypeQuantities() {
         ConservatoryRescue conservatory = new ConservatoryRescue();
+        // rescue the first only 1 berry bird.
+        BirdType parrotType = new BirdType("parrot", false, 2, Classification.Parrots);
+        Bird berryBird = new Bird(parrotType);
+        List<Food> foodList = new ArrayList<>();
+        foodList.add(Food.berries);
+        berryBird.setFoodList(foodList);
+        conservatory.rescue(berryBird);
         Map<Food, Integer> q1 = conservatory.getFoodTypeQuantities();
+        Assert.assertEquals(1, q1.values().size());
+        Assert.assertEquals(1, (int) q1.get(Food.berries));
+
+        // rescue the second bird, need 1 berry and 1 seed.
+        List<Food> foodList2 = new ArrayList<>();
+        foodList2.add(Food.berries);
+        foodList2.add(Food.seeds);
+        Bird second = new Bird(parrotType);
+        second.setFoodList(foodList2);
+        conservatory.rescue(second);
+        Map<Food, Integer> q2 = conservatory.getFoodTypeQuantities();
+        Assert.assertEquals(2, q1.values().size());
+        Assert.assertEquals(2, (int) q1.get(Food.berries));
+        Assert.assertEquals(1, (int) q1.get(Food.seeds));
     }
 }
