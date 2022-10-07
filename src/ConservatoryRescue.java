@@ -2,9 +2,9 @@ import java.util.*;
 
 public class ConservatoryRescue {
 
-    public List<Aviary> aviaryList = new ArrayList<>();
+    private List<Aviary> aviaryList = new ArrayList<>();
 
-    public Map<Food, Integer> foodTypeQuantities = new HashMap<>();
+    private Map<Food, Integer> foodTypeQuantities = new HashMap<>();
 
     /**
      * Rescue new bird:
@@ -12,7 +12,7 @@ public class ConservatoryRescue {
      * If not, try to add the bird into each existed aviary, {@link Aviary#addBird(Bird) the aviary principle}.
      * If all aviaries fail, try to add a new aviary if the number of aviaries is less than 20.
      * If fails too, we cannot rescue it, return false;
-     * If succeed, will add food type into the food type quantities.
+     * If succeeded, will add food type into the food type quantities.
      * @param bird the bird that we want to rescue.
      * @return whether we rescue the bird successfully.
      */
@@ -58,5 +58,21 @@ public class ConservatoryRescue {
         }
         System.out.println(indexBuilder);
         return indexBuilder.toString();
+    }
+
+    /**
+     * get Current Aviary List
+     * @return
+     */
+    public List<Aviary> getAviaryList() {
+        return aviaryList;
+    }
+
+    /**
+     * get Current Food type quantities.
+     * @return
+     */
+    public Map<Food, Integer> getFoodTypeQuantities() {
+        return foodTypeQuantities;
     }
 }
