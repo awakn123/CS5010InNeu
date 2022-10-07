@@ -43,7 +43,7 @@ public class ConservatoryRescueTest {
 
         // Check duck
         BirdType duckType = new BirdType("duck", false, 2, Classification.Waterfowl);
-        Assert.assertTrue(conservatory.rescue(new Bird("Black Duck", duckType)));
+        Assert.assertTrue(conservatory.rescue(new Waterfowl("Black Duck", duckType)));
         Assert.assertEquals(3, conservatory.getAviaryList().size());
 
         // Check hawk
@@ -53,30 +53,31 @@ public class ConservatoryRescueTest {
 
         // Check parrot
         BirdType parrotType = new BirdType("parrot", false, 2, Classification.Parrots);
-        Assert.assertTrue(conservatory.rescue(new Bird("Beautiful P", parrotType)));
+        Assert.assertTrue(conservatory.rescue(new Parrot("Beautiful P", parrotType)));
         Assert.assertEquals(4, conservatory.getAviaryList().size());
         Assert.assertEquals(2, conservatory.getAviaryList().get(0).getBirdList().size());
 
         // Rescuing 4 parrots.
-        conservatory.rescue(new Bird("Normal Parrot 1", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 2", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 3", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 4", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 1", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 2", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 3", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 4", parrotType));
         Assert.assertEquals(5, conservatory.getAviaryList().size());
         Assert.assertEquals(5, conservatory.getAviaryList().get(0).getBirdList().size());
 
         // Rescuing 79 parrots.
         for (int i = 0; i < 79; i++) {
-            Assert.assertTrue(conservatory.rescue(new Bird("Batch Parrot " + i, parrotType)));
+            Assert.assertTrue(conservatory.rescue(new Parrot("Batch Parrot " + i, parrotType)));
         }
         Assert.assertEquals(20, conservatory.getAviaryList().size());
         Assert.assertEquals(5, conservatory.getAviaryList().get(19).getBirdList().size());
 
         // Rescue the last
-        Assert.assertFalse(conservatory.rescue(new Bird("Last one", parrotType)));
+        Assert.assertFalse(conservatory.rescue(new Parrot("Last one", parrotType)));
     }
 
     /**
+     * Print index when there is no birds, expect empty str.
      * Rescue 10 parrots into conservatory, and print them.
      * It should have 2 aviary list, the first 5 belong to the first, and other five belong to the second.
      * In an alphabetical way by bird name.
@@ -84,17 +85,19 @@ public class ConservatoryRescueTest {
     @Test
     public void printIndex() {
         ConservatoryRescue conservatory = new ConservatoryRescue();
+        String emptyStr = conservatory.printIndex();
+        Assert.assertEquals("", emptyStr);
         BirdType parrotType = new BirdType("parrot", false, 2, Classification.Parrots);
-        conservatory.rescue(new Bird("A Parrot 1st", parrotType));
-        conservatory.rescue(new Bird("C Parrot 2st", parrotType));
-        conservatory.rescue(new Bird("E Parrot 3st", parrotType));
-        conservatory.rescue(new Bird("G Parrot 4st", parrotType));
-        conservatory.rescue(new Bird("I Parrot 5st", parrotType));
-        conservatory.rescue(new Bird("B Parrot 6st", parrotType));
-        conservatory.rescue(new Bird("D Parrot 7st", parrotType));
-        conservatory.rescue(new Bird("F Parrot 8st", parrotType));
-        conservatory.rescue(new Bird("H Parrot 9st", parrotType));
-        conservatory.rescue(new Bird("J Parrot 10st", parrotType));
+        conservatory.rescue(new Parrot("A Parrot 1st", parrotType));
+        conservatory.rescue(new Parrot("C Parrot 2st", parrotType));
+        conservatory.rescue(new Parrot("E Parrot 3st", parrotType));
+        conservatory.rescue(new Parrot("G Parrot 4st", parrotType));
+        conservatory.rescue(new Parrot("I Parrot 5st", parrotType));
+        conservatory.rescue(new Parrot("B Parrot 6st", parrotType));
+        conservatory.rescue(new Parrot("D Parrot 7st", parrotType));
+        conservatory.rescue(new Parrot("F Parrot 8st", parrotType));
+        conservatory.rescue(new Parrot("H Parrot 9st", parrotType));
+        conservatory.rescue(new Parrot("J Parrot 10st", parrotType));
         String indexStr = conservatory.printIndex();
         Assert.assertEquals("The bird name is:A Parrot 1st, locates in Aviary number 0\n" +
                 "The bird name is:B Parrot 6st, locates in Aviary number 1\n" +
