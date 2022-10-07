@@ -76,11 +76,15 @@ public class Aviary {
 
     public String printBirdList(){
         String s ="";
-        for (int i = 0; i < birdList.size(); i++) {
-            s = s +", "+ String.valueOf(birdList.get(i));
+        if (birdList.size()==1) {
+            s = s+birdList.get(0);
+        } else if (birdList.size()>1) {
+            s = s +birdList.get(0);
+            for (int i = 1; i < birdList.size(); i++) {
+                s = s +", "+birdList.get(i);
+            }
         }
         return s;
     }
-
 
 }

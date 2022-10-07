@@ -9,7 +9,8 @@ public class Conservatory {
 
     public Map<Food, Integer> foodTypeQuantities = new HashMap<>();
 
-    public Map<Food, Integer> getFoodTypeQuantities() {
+    public Map<Food, Integer> getFoodTypeQuantities()
+    {
         return getFoodTypeQuantities();
     }
 
@@ -19,9 +20,12 @@ public class Conservatory {
 
     public Map printSign(Aviary aviary) {
         Map<String, String> birdInformation = new HashMap<>();
+        String s="";
         for (int i = 0; i < aviary.getBirdList().size(); i++) {
-            birdInformation.put(String.valueOf(aviary.getBirdList().get(i)),aviary.getBirdList().get(i).getDescription());
+            s = s + aviary.getBirdList().get(i).getName() + " : " +
+                    aviary.getBirdList().get(i).getDescription() + "\n";
         }
+
         return birdInformation;
     }
 
@@ -30,9 +34,8 @@ public class Conservatory {
         //location+birds
         String s ="";
         for (int i = 0; i < conservatory.getAviaryList().size(); i++) {
-            aviaryInformation.put(String.valueOf(conservatory.getAviaryList().get(i)),
-                    "Location is " + String.valueOf(conservatory.getAviaryList().get(i).getLocation())+
-                            ", Birds in this aviary are "+conservatory.getAviaryList().get(i).printBirdList());
+            s=s+ "Aviary "+conservatory.getAviaryList().get(i)+":\n " +"\tLocation is " + conservatory.getAviaryList().get(i).getLocation()+
+                            ", Birds are "+conservatory.getAviaryList().get(i).printBirdList()+"\n";
         }
         return s;
     }
