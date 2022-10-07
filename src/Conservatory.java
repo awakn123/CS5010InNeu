@@ -18,24 +18,25 @@ public class Conservatory {
         return aviaryList;
     }
 
-    public Map printSign(Aviary aviary) {
-        Map<String, String> birdInformation = new HashMap<>();
+    public String printSign(Aviary aviary) {
         String s="";
+        if(aviary.getBirdList().size()==0){
+            s=s+"There is no bird.";
+        }
         for (int i = 0; i < aviary.getBirdList().size(); i++) {
             s = s + aviary.getBirdList().get(i).getName() + " : " +
                     aviary.getBirdList().get(i).getDescription() + "\n";
         }
 
-        return birdInformation;
+        return s;
     }
 
-    public String printMap(Conservatory conservatory) {
-        Map<String, String> aviaryInformation = new HashMap<>();
+    public String printMap() {
         //location+birds
         String s ="";
-        for (int i = 0; i < conservatory.getAviaryList().size(); i++) {
-            s=s+ "Aviary "+conservatory.getAviaryList().get(i)+":\n " +"\tLocation is " + conservatory.getAviaryList().get(i).getLocation()+
-                            ", Birds are "+conservatory.getAviaryList().get(i).printBirdList()+"\n";
+        for (int i = 0; i < this.getAviaryList().size(); i++) {
+            s=s+ "Aviary "+this.getAviaryList().get(i)+":\n " +"\tLocation is " + this.getAviaryList().get(i).getLocation()+
+                            ", Birds are "+this.getAviaryList().get(i).printBirdList()+"\n";
         }
         return s;
     }

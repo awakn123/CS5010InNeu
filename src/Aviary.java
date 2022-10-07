@@ -77,11 +77,11 @@ public class Aviary {
     public String printBirdList(){
         String s ="";
         if (birdList.size()==1) {
-            s = s+birdList.get(0);
+            s = s+birdList.get(0).getName();
         } else if (birdList.size()>1) {
-            s = s +birdList.get(0);
+            s = s +birdList.get(0).getName();
             for (int i = 1; i < birdList.size(); i++) {
-                s = s +", "+birdList.get(i);
+                s = s +", "+birdList.get(i).getName();
             }
         }
         return s;
