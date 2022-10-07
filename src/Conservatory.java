@@ -20,6 +20,9 @@ public class Conservatory {
 
     public String printSign(Aviary aviary) {
         String s="";
+        if(aviary == null){
+            s = s +"There is no aviary.";
+        }
         if(aviary.getBirdList().size()==0){
             s=s+"There is no bird.";
         }
