@@ -49,25 +49,6 @@ public class Aviary {
         return location;
     }
 
-    /**
-     * get the type of bird the aviary houses
-     *
-     * @return the type of birds
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * set the type of bird the aviary houses
-     *
-     * @param type the bird type
-     */
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
 
     /**
      * Try to add the bird into this aviary.
@@ -113,13 +94,9 @@ public class Aviary {
 
     public String printBirdList() {
         String s = "";
-        if (birdList.size() == 1) {
-            s = s + birdList.get(0).getName();
-        } else if (birdList.size() > 1) {
-            s = s + birdList.get(0).getName();
-            for (int i = 1; i < birdList.size(); i++) {
-                s = s + ", " + birdList.get(i).getName();
-            }
+        s = s + birdList.get(0).getName();
+        for (int i = 1; i < birdList.size(); i++) {
+            s = s + ", " + birdList.get(i).getName();
         }
         return s;
     }

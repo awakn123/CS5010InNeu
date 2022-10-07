@@ -9,6 +9,11 @@ import java.util.stream.Collectors;
 public class Track {
     private Map<Integer, Bird> birdMap = new HashMap<>();
 
+    /**
+     * return current tracked bird list.
+     *
+     * @return
+     */
     public List<Bird> getBirdList() {
         return birdMap.values().stream().collect(Collectors.toList());
     }

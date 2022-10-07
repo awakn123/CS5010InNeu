@@ -80,6 +80,7 @@ public class Bird {
     }
 
     /**
+     * mark the food that the bird preferred to eat.
      * @param food
      */
 
@@ -93,6 +94,7 @@ public class Bird {
 
     /**
      * Get the vocabulary that parrot learned
+     * Will report an exception for this is not a parrot.
      *
      * @return
      */
@@ -103,6 +105,7 @@ public class Bird {
 
     /**
      * Get the parrot's favorite saying.
+     * Will report an exception for this is not a parrot.
      *
      * @return
      */
@@ -113,6 +116,7 @@ public class Bird {
 
     /**
      * Set parrot's favourite saying
+     * Will report an exception for this is not a parrot.
      *
      * @param favorite
      */
@@ -122,6 +126,7 @@ public class Bird {
 
     /**
      * Set the vocabulary that parrot learned
+     * Will report an exception for this is not a parrot.
      *
      * @param vocabulary
      */
@@ -132,6 +137,7 @@ public class Bird {
 
     /**
      * Get the water body that the shorebird or waterfowl live by
+     * Will report an exception for this is not a shorebird or waterfowl.
      *
      * @return
      */
@@ -141,6 +147,7 @@ public class Bird {
 
     /**
      * Set the water body that the shorebird or waterfowl live by
+     * Will report an exception for this is not a shorebird or waterfowl.
      *
      * @param waterBody the water body that the shorebird or waterfowl live by
      */
