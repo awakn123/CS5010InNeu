@@ -2,9 +2,9 @@ import java.util.*;
 
 public class ConservatoryRescue {
 
-    public List<Aviary> aviaryList = new ArrayList<>();
+    private List<Aviary> aviaryList = new ArrayList<>();
 
-    public Map<Food, Integer> foodTypeQuantities = new HashMap<>();
+    private Map<Food, Integer> foodTypeQuantities = new HashMap<>();
 
     /**
      * Rescue new bird:
@@ -58,5 +58,21 @@ public class ConservatoryRescue {
         }
         System.out.println(indexBuilder);
         return indexBuilder.toString();
+    }
+
+    /**
+     * get Current Aviary List
+     * @return
+     */
+    public List<Aviary> getAviaryList() {
+        return aviaryList;
+    }
+
+    /**
+     * get Current Food type quantities.
+     * @return
+     */
+    public Map<Food, Integer> getFoodTypeQuantities() {
+        return foodTypeQuantities;
     }
 }
