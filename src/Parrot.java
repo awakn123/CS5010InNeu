@@ -9,6 +9,9 @@ public class Parrot extends Bird {
     public Parrot(BirdType birdType) {
         super(birdType);
     }
+    public Parrot(String name, BirdType birdType) {
+        super(name, birdType);
+    }
 
     public List<String> getVocabulary() {
         return vocabulary;

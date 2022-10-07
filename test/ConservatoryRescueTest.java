@@ -43,7 +43,7 @@ public class ConservatoryRescueTest {
 
         // Check duck
         BirdType duckType = new BirdType("duck", false, 2, Classification.Waterfowl);
-        Assert.assertTrue(conservatory.rescue(new Bird("Black Duck", duckType)));
+        Assert.assertTrue(conservatory.rescue(new Waterfowl("Black Duck", duckType)));
         Assert.assertEquals(3, conservatory.getAviaryList().size());
 
         // Check hawk
@@ -53,27 +53,27 @@ public class ConservatoryRescueTest {
 
         // Check parrot
         BirdType parrotType = new BirdType("parrot", false, 2, Classification.Parrots);
-        Assert.assertTrue(conservatory.rescue(new Bird("Beautiful P", parrotType)));
+        Assert.assertTrue(conservatory.rescue(new Parrot("Beautiful P", parrotType)));
         Assert.assertEquals(4, conservatory.getAviaryList().size());
         Assert.assertEquals(2, conservatory.getAviaryList().get(0).getBirdList().size());
 
         // Rescuing 4 parrots.
-        conservatory.rescue(new Bird("Normal Parrot 1", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 2", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 3", parrotType));
-        conservatory.rescue(new Bird("Normal Parrot 4", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 1", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 2", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 3", parrotType));
+        conservatory.rescue(new Parrot("Normal Parrot 4", parrotType));
         Assert.assertEquals(5, conservatory.getAviaryList().size());
         Assert.assertEquals(5, conservatory.getAviaryList().get(0).getBirdList().size());
 
         // Rescuing 79 parrots.
         for (int i = 0; i < 79; i++) {
-            Assert.assertTrue(conservatory.rescue(new Bird("Batch Parrot " + i, parrotType)));
+            Assert.assertTrue(conservatory.rescue(new Parrot("Batch Parrot " + i, parrotType)));
         }
         Assert.assertEquals(20, conservatory.getAviaryList().size());
         Assert.assertEquals(5, conservatory.getAviaryList().get(19).getBirdList().size());
 
         // Rescue the last
-        Assert.assertFalse(conservatory.rescue(new Bird("Last one", parrotType)));
+        Assert.assertFalse(conservatory.rescue(new Parrot("Last one", parrotType)));
     }
 
     /**

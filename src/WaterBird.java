@@ -4,6 +4,9 @@ public class WaterBird extends Bird{
     public WaterBird(BirdType birdType) {
         super(birdType);
     }
+    public WaterBird(String name, BirdType birdType) {
+        super(name, birdType);
+    }
 
     public String getWaterBody() {
         return waterBody;
