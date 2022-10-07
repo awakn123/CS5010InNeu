@@ -1,4 +1,7 @@
-public class ShoreBird extends WaterBird{
+/**
+ * ShoreBird Class
+ */
+public class ShoreBird extends WaterBird {
     public ShoreBird(BirdType birdType) {
         super(birdType);
     }

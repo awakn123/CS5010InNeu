@@ -1,5 +1,8 @@
 import java.util.Comparator;
 
+/**
+ * BirdComparator Class
+ */
 public class BirdComparator implements Comparator<Bird> {
     @Override
     public int compare(Bird o1, Bird o2) {

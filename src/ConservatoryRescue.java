@@ -16,6 +16,7 @@ public class ConservatoryRescue {
      * If all aviaries fail, try to add a new aviary if the number of aviaries is less than 20.
      * If fails too, we cannot rescue it, return false;
      * If succeeded, will add food type into the food type quantities.
+     *
      * @param bird the bird that we want to rescue.
      * @return whether we rescue the bird successfully.
      */
@@ -48,13 +49,14 @@ public class ConservatoryRescue {
     /**
      * Print and return the name and its location of current birds in this conservatory,
      * in an alphabetical sorted way by bird name.
+     *
      * @return
      */
     public String printIndex() {
         PriorityQueue<Bird> birdQueue = new PriorityQueue<>(new BirdComparator());
         aviaryList.forEach(aviary -> aviary.getBirdList().forEach((bird) -> birdQueue.add(bird)));
         StringBuilder indexBuilder = new StringBuilder();
-        while(!birdQueue.isEmpty()) {
+        while (!birdQueue.isEmpty()) {
             Bird bird = birdQueue.poll();
             indexBuilder.append("The bird name is:").append(bird.getName()).append(", locates in ")
                     .append(bird.getAviary().getLocation()).append(System.lineSeparator());
@@ -65,6 +67,7 @@ public class ConservatoryRescue {
 
     /**
      * get Current Aviary List
+     *
      * @return
      */
     public List<Aviary> getAviaryList() {
@@ -73,6 +76,7 @@ public class ConservatoryRescue {
 
     /**
      * get Current Food type quantities.
+     *
      * @return
      */
     public Map<Food, Integer> getFoodTypeQuantities() {

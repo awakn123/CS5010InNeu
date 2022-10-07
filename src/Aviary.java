@@ -1,42 +1,72 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Aviary Class. Use for recording the id, location of the aviary and type of birds in it. Also use for adding the bird.
+ */
 public class Aviary {
     private static int maxId = 0;
     private static List<Classification> NOT_MIXED_CLASSIFICATIONS = new ArrayList<>();
     private static final String CAN_MIXED = "canMixed";
+
     static {
         NOT_MIXED_CLASSIFICATIONS.add(Classification.FlightlessBirds);
         NOT_MIXED_CLASSIFICATIONS.add(Classification.BirdsOfPrey);
         NOT_MIXED_CLASSIFICATIONS.add(Classification.Waterfowl);
     }
+
     private int id;
     private List<Bird> birdList = new ArrayList<>();
     private String location;
     private String type;
 
+    /**
+     * Construct an Aviary object that has the provided location
+     *
+     * @param location the location of the given aviary
+     */
     public Aviary(String location) {
         this.location = location;
         this.id = maxId;
         maxId++;
     }
 
+    /**
+     * Get the bird list in the aviary
+     *
+     * @return the bird list
+     */
     public List<Bird> getBirdList() {
         return birdList;
     }
 
+    /**
+     * Get the location of the aviary
+     *
+     * @return the location
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     * get the type of bird the aviary houses
+     *
+     * @return the type of birds
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * set the type of bird the aviary houses
+     *
+     * @param type the bird type
+     */
+
     public void setType(String type) {
         this.type = type;
     }
-
 
 
     /**
@@ -44,6 +74,7 @@ public class Aviary {
      * If the aviary is full(size >=5), will return false;
      * If the bird cannot be mixed with other birds in the aviary, will return false;
      * Other scenarios will succeed.
+     *
      * @param bird The bird that wants to join.
      * @return Whether it is added successfully.
      */
@@ -74,14 +105,20 @@ public class Aviary {
         return true;
     }
 
-    public String printBirdList(){
-        String s ="";
-        if (birdList.size()==1) {
-            s = s+birdList.get(0).getName();
-        } else if (birdList.size()>1) {
-            s = s +birdList.get(0).getName();
+    /**
+     * print names of all the birds in the aviary
+     *
+     * @return the names of the birds
+     */
+
+    public String printBirdList() {
+        String s = "";
+        if (birdList.size() == 1) {
+            s = s + birdList.get(0).getName();
+        } else if (birdList.size() > 1) {
+            s = s + birdList.get(0).getName();
             for (int i = 1; i < birdList.size(); i++) {
-                s = s +", "+birdList.get(i).getName();
+                s = s + ", " + birdList.get(i).getName();
             }
         }
         return s;
