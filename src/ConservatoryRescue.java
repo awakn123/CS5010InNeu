@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * Conservatory Class. Use for rescuing birds and providing food quantities, printing some information for them.
+ */
 public class ConservatoryRescue {
 
     private List<Aviary> aviaryList = new ArrayList<>();
