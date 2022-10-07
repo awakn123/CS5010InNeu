@@ -22,6 +22,7 @@ public class Conservatory {
         String s="";
         if(aviary == null){
             s = s +"There is no aviary.";
+            return s;
         }
         if(aviary.getBirdList().size()==0){
             s=s+"There is no bird.";
