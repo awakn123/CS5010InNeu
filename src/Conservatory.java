@@ -39,7 +39,7 @@ public class Conservatory {
         //location+birds
         String s ="";
         for (int i = 0; i < this.getAviaryList().size(); i++) {
-            s=s+ "Aviary "+this.getAviaryList().get(i)+":\n " +"\tLocation is " + this.getAviaryList().get(i).getLocation()+
+            s=s+ "Aviary "+i+":\n " +"\tLocation is " + this.getAviaryList().get(i).getLocation()+
                             ", Birds are "+this.getAviaryList().get(i).printBirdList()+"\n";
         }
         return s;
