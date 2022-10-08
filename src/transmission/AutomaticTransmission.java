@@ -6,7 +6,7 @@ package transmission;
 public class AutomaticTransmission implements Transmission {
     private int[] thresholds;
     private int speed = 0;
-    private int gearIndex = 1;
+    private int gearIndex = 0;
     private static final int CHANGE_SPEED = 2;
 
     /**
@@ -36,6 +36,9 @@ public class AutomaticTransmission implements Transmission {
     @Override
     public Transmission increaseSpeed() {
         this.speed += AutomaticTransmission.CHANGE_SPEED;
+        if (this.gearIndex == 0) {
+            this.gearIndex++;
+        }
         while (this.gearIndex < this.thresholds.length + 1 && this.speed >= this.thresholds[this.gearIndex - 1]) {
             this.gearIndex++;
         }
@@ -56,6 +59,9 @@ public class AutomaticTransmission implements Transmission {
         this.speed -= AutomaticTransmission.CHANGE_SPEED;
         while (this.gearIndex > 1 && this.speed < this.thresholds[this.gearIndex - 2]) {
             this.gearIndex--;
+        }
+        if (this.speed == 0) {
+            this.gearIndex = 0;
         }
         return this;
     }

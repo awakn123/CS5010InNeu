@@ -73,6 +73,10 @@ public class TransmissionTest {
         Assert.assertEquals("Transmission (speed = 50, gear = 6)", transmission.toString());
         transmission.decreaseSpeed();
         Assert.assertEquals("Transmission (speed = 48, gear = 5)", transmission.toString());
+        for (int i = 0; i < 24; i++) {
+            transmission.decreaseSpeed();
+        }
+        Assert.assertEquals("Transmission (speed = 0, gear = 0)", transmission.toString());
     }
 
 }
