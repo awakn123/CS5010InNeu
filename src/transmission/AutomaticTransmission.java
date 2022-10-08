@@ -6,7 +6,7 @@ package transmission;
 public class AutomaticTransmission implements Transmission {
     private int[] thresholds;
     private int speed = 0;
-    private int gearIndex = 0;
+    private int gearIndex = 1;
     private static final int CHANGE_SPEED = 2;
 
     /**
@@ -36,7 +36,7 @@ public class AutomaticTransmission implements Transmission {
     @Override
     public Transmission increaseSpeed() {
         this.speed += AutomaticTransmission.CHANGE_SPEED;
-        while (this.gearIndex < this.thresholds.length && this.speed >= this.thresholds[this.gearIndex]) {
+        while (this.gearIndex < this.thresholds.length + 1 && this.speed >= this.thresholds[this.gearIndex - 1]) {
             this.gearIndex++;
         }
         return this;
@@ -54,7 +54,7 @@ public class AutomaticTransmission implements Transmission {
             throw new IllegalStateException("Cannot decrease speed to negative.");
         }
         this.speed -= AutomaticTransmission.CHANGE_SPEED;
-        while (this.gearIndex > 0 && this.speed < this.thresholds[this.gearIndex - 1]) {
+        while (this.gearIndex > 1 && this.speed < this.thresholds[this.gearIndex - 2]) {
             this.gearIndex--;
         }
         return this;
