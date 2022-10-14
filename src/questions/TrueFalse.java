@@ -1,5 +1,8 @@
 package questions;
 
+/**
+ * The true false question.
+ */
 public class TrueFalse extends AbstractQuestion {
     private static final String TRUE = "True";
     private static final String FALSE = "False";
@@ -13,11 +16,20 @@ public class TrueFalse extends AbstractQuestion {
         this.correctAnswer = correctAnswer;
     }
 
+    /**
+     * check whether equals with correct answer.
+     * @return
+     */
     @Override
     public boolean checkAnswer() {
         return this.correctAnswer.equals(this.getAnswer());
     }
 
+    /**
+     * true false will be place at the top.
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(Question o) {
         if (o instanceof TrueFalse) {

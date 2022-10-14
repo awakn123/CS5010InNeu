@@ -1,5 +1,8 @@
 package questions;
 
+/**
+ * abstract question class, store text, whether is correct, answer, and provide default answer logic.
+ */
 public abstract class AbstractQuestion implements Question {
 
     private String text;
@@ -22,6 +25,11 @@ public abstract class AbstractQuestion implements Question {
     }
 
 
+    /**
+     * answer function that provides default logic
+     * @param answer
+     * @return
+     */
     @Override
     public String answer(String answer) {
         this.answer = answer;
@@ -33,6 +41,10 @@ public abstract class AbstractQuestion implements Question {
         return answer;
     }
 
+    /**
+     * function for implementing class, check whether answer is right.
+     * @return
+     */
     public abstract boolean checkAnswer();
 
 }

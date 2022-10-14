@@ -2,6 +2,9 @@ package questions;
 
 import java.util.List;
 
+/**
+ * The multiple choice class. options should be 3~8, and correct answer should be a number in string.
+ */
 public class MultipleChoice extends AbstractQuestionWithOptions {
 
     private int correctAnswer;
@@ -18,6 +21,10 @@ public class MultipleChoice extends AbstractQuestionWithOptions {
         }
     }
 
+    /**
+     * check answer equals with the correct answer.
+     * @return
+     */
     @Override
     public boolean checkAnswer() {
         int answer;
@@ -29,6 +36,11 @@ public class MultipleChoice extends AbstractQuestionWithOptions {
         return answer == this.correctAnswer;
     }
 
+    /**
+     * The multiple choice would be place at 2rd, only below True false.
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(Question o) {
         if (o instanceof MultipleChoice) {

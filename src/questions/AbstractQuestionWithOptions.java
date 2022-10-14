@@ -2,6 +2,9 @@ package questions;
 
 import java.util.List;
 
+/**
+ * question with options.
+ */
 public abstract class AbstractQuestionWithOptions extends AbstractQuestion {
     private List<String> options;
 
@@ -13,7 +16,4 @@ public abstract class AbstractQuestionWithOptions extends AbstractQuestion {
         this.options = options;
     }
 
-    public List<String> getOptions() {
-        return options;
-    }
 }
