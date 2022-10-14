@@ -1,5 +1,6 @@
 package questions;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,6 +20,10 @@ public class MultipleChoice extends AbstractQuestionWithOptions {
         if (this.correctAnswer < 1 || this.correctAnswer > options.size()) {
             throw new IllegalArgumentException("The correct answer does not exist!");
         }
+    }
+
+    public MultipleChoice(String question, String correctAnswer, String... options) {
+        this(question, correctAnswer, Arrays.asList(options));
     }
 
     /**

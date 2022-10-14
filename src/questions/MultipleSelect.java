@@ -34,6 +34,10 @@ public class MultipleSelect extends AbstractQuestionWithOptions {
         }
     }
 
+    public MultipleSelect(String question, String correctAnswer, String... options) {
+        this(question, correctAnswer, Arrays.asList(options));
+    }
+
     /**
      * only when answer is equals with correct answer it would be true.
      * @return

@@ -50,6 +50,7 @@ public class QuestionTest {
      * 2. 3 Options with correctResult A -> Exception
      * 3. 3 Options with correctResult 4 -> Exception
      * 4. 3 Options with correctResult 3 -> Worked
+     * 5. 3 Options by array with correct Result 3 -> worked.
      */
     @Test
     public void createMultipleChoice() {
@@ -62,6 +63,8 @@ public class QuestionTest {
         Assert.assertThrows(IllegalArgumentException.class, () -> new MultipleChoice(NEW_QUESTION_TEXT, "4", options));
         Question question = new MultipleChoice(NEW_QUESTION_TEXT, "3", options);
         Assert.assertNotNull(question);
+        Question question2 = new MultipleChoice(NEW_QUESTION_TEXT, "3", "Option 1", "Option 2", "Option 3");
+        Assert.assertNotNull(question2);
     }
 
     /**
@@ -96,6 +99,8 @@ public class QuestionTest {
         Question question = new MultipleSelect(NEW_QUESTION_TEXT, "1 3", options);
         Assert.assertNotNull(question);
         Assert.assertThrows(IllegalArgumentException.class, () -> new MultipleSelect(NEW_QUESTION_TEXT, "3 4", options));
+        Question question2 = new MultipleSelect(NEW_QUESTION_TEXT, "1 3", "Option 1", "Option 2", "Option 3");
+        Assert.assertNotNull(question2);
     }
 
     /**
