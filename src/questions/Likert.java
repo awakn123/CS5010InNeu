@@ -6,6 +6,7 @@ import java.util.List;
 public class Likert extends AbstractQuestion {
 
     private static List<String> ANSWERS = new ArrayList<>();
+
     static {
         ANSWERS.add("1");
         ANSWERS.add("2");

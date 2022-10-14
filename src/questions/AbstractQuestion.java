@@ -1,6 +1,6 @@
 package questions;
 
-public abstract class AbstractQuestion implements Question{
+public abstract class AbstractQuestion implements Question {
 
     private String text;
 
@@ -11,6 +11,7 @@ public abstract class AbstractQuestion implements Question{
     private static final String CORRECT = "Correct";
 
     private static final String IN_CORRECT = "Incorrect";
+
     public AbstractQuestion(String question) {
         this.text = question;
     }
