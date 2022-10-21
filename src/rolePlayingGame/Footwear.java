@@ -1,6 +1,6 @@
 package rolePlayingGame;
 
-public class Footwear extends Gear{
+public class Footwear extends AbstractGear {
     private int attack;
     private int defense;
 
@@ -13,7 +13,7 @@ public class Footwear extends Gear{
     }
 
     @Override
-    public void combineNumber(Gear gear) {
-
+    public AbstractGear combine(AbstractGear abstractGear) {
+        return null;
     }
 }
