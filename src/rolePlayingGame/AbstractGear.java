@@ -26,10 +26,6 @@ public abstract class AbstractGear implements Gear{
         return adjectives;
     }
 
-    public String getNoun() {
-        return noun;
-    }
-
     protected void combineNames(Gear gear) {
         this.adjectives.addAll(0, gear.getAdjectives());
     }
