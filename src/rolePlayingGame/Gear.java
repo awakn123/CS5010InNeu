@@ -1,11 +1,15 @@
 package rolePlayingGame;
 
+import java.util.List;
+
 public interface Gear {
-    Gear combine(Gear gear);
+    void combine(Gear gear);
 
     String getFullName();
 
     int getDefense();
 
     int getAttack();
+
+    public List<String> getAdjectives();
 }

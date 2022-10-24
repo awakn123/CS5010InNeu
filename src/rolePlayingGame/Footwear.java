@@ -1,19 +1,21 @@
 package rolePlayingGame;
 
 public class Footwear extends AbstractGear {
-    private int attack;
-    private int defense;
-
-    public int getAttack() {
-        return attack;
+    public Footwear(String adjective, String noun, int attack, int defense) {
+        super(adjective, noun);
+        this.setAttack(attack);
+        this.setDefense(defense);
     }
 
-    public int getDefense() {
-        return defense;
+    public void combine(Gear gear) {
+        if (!(gear instanceof Footwear)) {
+            throw new IllegalArgumentException("Cannot combine " + gear.getFullName() + ", Class is " +
+                    gear.getClass().getSimpleName() + " with " + this.getFullName() + ", Class is " +
+                    this.getClass().getSimpleName());
+        }
+        this.combineNames(gear);
+        this.setAttack(this.getAttack() + gear.getAttack());
+        this.setDefense(this.getDefense() + gear.getDefense());
     }
 
-    @Override
-    public AbstractGear combine(AbstractGear abstractGear) {
-        return null;
-    }
 }
