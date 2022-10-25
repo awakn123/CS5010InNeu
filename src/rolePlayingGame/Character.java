@@ -12,20 +12,21 @@ public class Character {
     private HandGear rightHandGear;
     private Footwear leftFootwear;
     private Footwear rightFootwear;
-    public Character(int initialAttack, int initialDefense){
+
+    public Character(int initialAttack, int initialDefense) {
         this.initialAttack = initialAttack;
-        this.initialDefense= initialDefense;
-        this.defense= initialDefense;
-        this.attack=initialAttack;
+        this.initialDefense = initialDefense;
+        this.defense = initialDefense;
+        this.attack = initialAttack;
     }
 
 
     public int getAttack() {
-        int attackSum=initialAttack;
-        Gear[] g={headGear,leftHandGear,rightHandGear,leftFootwear,rightFootwear};
-        for(int i=0;i<5;i++){
-            if(!(g[i] ==null)){
-                attackSum=attackSum+g[i].getAttack();
+        int attackSum = initialAttack;
+        Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
+        for (int i = 0; i < 5; i++) {
+            if (!(g[i] == null)) {
+                attackSum = attackSum + g[i].getAttack();
             }
         }
         return attackSum;
@@ -33,11 +34,11 @@ public class Character {
 
     public int getDefense() {
 
-        int defenseSum=initialDefense;
-        Gear[] g={headGear,leftHandGear,rightHandGear,leftFootwear,rightFootwear};
-        for(int i=0;i<5;i++){
-            if(!(g[i] ==null)){
-                defenseSum=defenseSum+g[i].getDefense();
+        int defenseSum = initialDefense;
+        Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
+        for (int i = 0; i < 5; i++) {
+            if (!(g[i] == null)) {
+                defenseSum = defenseSum + g[i].getDefense();
             }
         }
         return defenseSum;
@@ -64,8 +65,8 @@ public class Character {
     }
 
 
-    public void pickUp(Gear obj){
-        if(obj instanceof HeadGear){
+    public void pickUp(Gear obj) {
+        if (obj instanceof HeadGear) {
             if (headGear == null) {
                 HeadGear gear = (HeadGear) obj;
                 headGear = gear;
@@ -74,28 +75,28 @@ public class Character {
             }
         } else if (obj instanceof HandGear) {
             //first leftHandGear-rightHandGear-combine
-            if(leftHandGear==null){
-                HandGear gear=(HandGear) obj;
-                this.leftHandGear=gear;
-            } else if (rightHandGear==null) {
-                HandGear gear=(HandGear) obj;
-                this.rightHandGear=gear;
-            }else {
+            if (leftHandGear == null) {
+                HandGear gear = (HandGear) obj;
+                this.leftHandGear = gear;
+            } else if (rightHandGear == null) {
+                HandGear gear = (HandGear) obj;
+                this.rightHandGear = gear;
+            } else {
                 this.getLeftHandGear().combine(obj);
             }
         } else if (obj instanceof Footwear) {
-            if(leftFootwear==null){
-                Footwear gear=(Footwear) obj;
-                leftFootwear=gear;
-            } else if (rightFootwear==null) {
-                Footwear gear=(Footwear) obj;
-                rightFootwear=gear;
-            }else {
+            if (leftFootwear == null) {
+                Footwear gear = (Footwear) obj;
+                leftFootwear = gear;
+            } else if (rightFootwear == null) {
+                Footwear gear = (Footwear) obj;
+                rightFootwear = gear;
+            } else {
                 this.getLeftFootwear().combine(obj);
             }
         }
-        attack=this.getAttack();
-        defense=this.getDefense();
+        attack = this.getAttack();
+        defense = this.getDefense();
     }
 
 }
