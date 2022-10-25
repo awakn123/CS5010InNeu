@@ -1,6 +1,6 @@
 package bignumber;
 
-public class BigNumberImpl implements BigNumber{
+public class BigNumberImpl implements BigNumber {
 
     private Node head;
     private Node tail;
@@ -13,8 +13,7 @@ public class BigNumberImpl implements BigNumber{
     public BigNumberImpl(String bigNumberStr) {
         char[] chars = bigNumberStr.toCharArray();
         Node node = null;
-        Node prev = null;
-        for (char c: chars) {
+        for (char c : chars) {
             if (!Character.isDigit(c)) {
                 throw new IllegalArgumentException("The string contains a nonDigit character:" + c);
             }
@@ -27,6 +26,15 @@ public class BigNumberImpl implements BigNumber{
             }
         }
         this.tail = node;
+    }
+
+    public BigNumberImpl(Node head, Node tail) {
+        this.head = head;
+        this.tail = tail;
+    }
+
+    public Node getHead() {
+        return head;
     }
 
     public Node getTail() {
@@ -67,9 +75,8 @@ public class BigNumberImpl implements BigNumber{
         while (node.next != null) {
             node = node.next;
         }
-        for (int i = 0; i< shiftNum; i++) {
-            node.next = new Node(0);
-            node = node.next;
+        for (int i = 0; i < shiftNum; i++) {
+            node.addNext(new Node(0));
         }
     }
 
@@ -84,8 +91,10 @@ public class BigNumberImpl implements BigNumber{
         Node node = getNodeFromRight(shiftNum);
         if (node == null) {
             head = new Node(0);
+            tail = head;
         } else {
             node.next = null;
+            tail = node;
         }
     }
 
@@ -103,6 +112,7 @@ public class BigNumberImpl implements BigNumber{
 
     /**
      * get the node from right, start from 0
+     *
      * @param position
      * @return
      */
@@ -126,13 +136,30 @@ public class BigNumberImpl implements BigNumber{
     @Override
     public BigNumber copy() {
         BigNumberImpl bigNumber = new BigNumberImpl();
-        bigNumber.add(this);
-        return bigNumber;
+        return bigNumber.add(this);
     }
 
     @Override
     public void addDigit(int digit) {
-
+        Node curNode = this.tail;
+        int carry = 0;
+        while (digit != 0 && carry != 0) {
+            curNode.val = digit % 10 + curNode.val + carry;
+            carry = curNode.val / 10;
+            curNode.val = curNode.val % 10;
+            if (curNode.prev == null) {
+                curNode.addPrev(new Node(0));
+            }
+            curNode = curNode.prev;
+            digit /= 10;
+        }
+        if (curNode.val == 0) {
+            curNode = curNode.next;
+            curNode.prev = null;
+        }
+        if (curNode.prev == null) {
+            this.head = curNode;
+        }
     }
 
     @Override
@@ -144,14 +171,62 @@ public class BigNumberImpl implements BigNumber{
         BigNumberImpl n2 = (BigNumberImpl) bigNumber;
         Node last1 = this.tail;
         Node last2 = n2.getTail();
+        Node tail = new Node(0);
+        Node currentHandleNode = tail;
+        int carry = 0;
         while (last1 != null && last2 != null) {
+            currentHandleNode.val = last1.val + last2.val + carry;
+            carry = currentHandleNode.val / 10;
+            currentHandleNode.val = currentHandleNode.val % 10;
 
+            last1 = last1.prev;
+            last2 = last2.prev;
+            currentHandleNode.addPrev(new Node(0));
         }
-        return null;
+
+        Node iterNode = last1 == null ? last2 : last1;
+
+        while (iterNode != null) {
+            currentHandleNode.val = iterNode.val + carry;
+            carry = currentHandleNode.val / 10;
+            currentHandleNode.val = currentHandleNode.val % 10;
+
+            iterNode = iterNode.prev;
+            currentHandleNode.addPrev(new Node(0));
+        }
+
+        if (carry != 0) {
+            currentHandleNode.val = carry;
+        } else {
+            currentHandleNode = currentHandleNode.next;
+            currentHandleNode.prev = null;
+        }
+
+        return new BigNumberImpl(currentHandleNode, tail);
     }
 
     @Override
     public int compareTo(BigNumber o) {
+        int l1 = this.length(), l2 = o.length();
+        if (l1 < l2) {
+            return -1;
+        } else if (l1 > l2) {
+            return 1;
+        }
+        if (!(o instanceof BigNumberImpl)) {
+            return this.compareTo(new BigNumberImpl(o.toString()));
+        }
+        Node node1 = this.getHead();
+        Node node2 = ((BigNumberImpl) o).getHead();
+        while (node1 != null & node2 != null) {
+            if (node1.val < node2.val) {
+                return -1;
+            } else if (node1.val > node2.val) {
+                return 1;
+            }
+            node1 = node1.next;
+            node2 = node2.next;
+        }
         return 0;
     }
 
@@ -159,12 +234,25 @@ public class BigNumberImpl implements BigNumber{
         int val;
         Node next;
         Node prev;
+
         public Node(int val) {
             this.val = val;
         }
+
         public Node(int val, Node prev) {
             this.val = val;
             this.prev = prev;
         }
+
+        public void addPrev(Node prev) {
+            this.prev = prev;
+            prev.next = this;
+        }
+
+        public void addNext(Node next) {
+            this.next = next;
+            next.prev = this;
+        }
+
     }
 }
