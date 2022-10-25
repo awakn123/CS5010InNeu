@@ -86,4 +86,21 @@ public class CharacterTest {
         assertNotNull(a.getLeftFootwear());
         assertNotNull(a.getRightFootwear());
     }
+
+    @Test
+    public void pickUpGear() {
+        Character a = new Character(100,200);
+        Assert.assertEquals(100,a.getAttack());
+        Assert.assertEquals(200, a.getDefense());
+        Assert.assertNull(a.getHeadGear());
+        //pickup headGear b
+        Gear b = new HeadGear ("blue", "hat" ,5);
+        Gear c = new HandGear ("sharp", "sword", 4);
+        Gear d = new Footwear ("thick", "shield", 10,11);
+        a.pickUp(b);
+        a.pickUp(c);
+        a.pickUp(d);
+        Assert.assertEquals(114,a.getAttack());
+        Assert.assertEquals(216,a.getDefense());
+    }
 }
