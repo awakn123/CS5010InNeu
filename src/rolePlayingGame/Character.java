@@ -21,7 +21,8 @@ public class Character {
     }
 
 
-    public int getAttack() {
+
+    public int computeAttack() {
         int attackSum = initialAttack;
         Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
         for (int i = 0; i < 5; i++) {
@@ -32,7 +33,15 @@ public class Character {
         return attackSum;
     }
 
+    public int getAttack() {
+        return attack;
+    }
+
     public int getDefense() {
+        return defense;
+    }
+
+    public int computeDefense() {
 
         int defenseSum = initialDefense;
         Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
@@ -95,8 +104,8 @@ public class Character {
                 this.getLeftFootwear().combine(obj);
             }
         }
-        attack = this.getAttack();
-        defense = this.getDefense();
+        attack = this.computeAttack();
+        defense = this.computeDefense();
     }
 
 }
