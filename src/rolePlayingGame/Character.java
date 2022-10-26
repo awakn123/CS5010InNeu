@@ -22,7 +22,7 @@ public class Character {
 
 
 
-    public int computeAttack() {
+    private int computeAttack() {
         int attackSum = initialAttack;
         Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
         for (int i = 0; i < 5; i++) {
@@ -41,7 +41,7 @@ public class Character {
         return defense;
     }
 
-    public int computeDefense() {
+    private int computeDefense() {
 
         int defenseSum = initialDefense;
         Gear[] g = {headGear, leftHandGear, rightHandGear, leftFootwear, rightFootwear};
