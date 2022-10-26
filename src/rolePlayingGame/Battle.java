@@ -12,6 +12,10 @@ public class Battle {
     private Character character1;
     private Character character2;
     private List<Gear> gearList;
+    private Character winner;
+
+    public static final String TIE_TIP = "The battle is a tie, no one wins.";
+    public static final String WINNER_TIP = "The winner is: ";
 
     /**
      * Construct Battle class with 3 properties.
@@ -42,34 +46,28 @@ public class Battle {
     }
 
     /**
-     * Fight process.
-     * @return the winner of the fight, if draws, return null;
+     * Fight process, will mark winner as the fight result;
+     * Win by the damage amount. If character 1 makes more damage, character 1 wins;
+     * If character 2 makes more damage, character 2 wins;
+     * If damage equals, it's a tie.
+     * @return the winner of the fight, if draws, return tie tip;
      */
-    public Character fight() {
+    public String fight() {
         int damageFrom1 = character1.getAttack() - character2.getDefense();
         int damageFrom2 = character2.getAttack() - character1.getDefense();
         if (damageFrom1 > damageFrom2) {
-            return character1;
+            this.winner = character1;
+            return WINNER_TIP + winner;
         } else if (damageFrom2 > damageFrom1) {
-            return character2;
-        }
-        return null;
-    }
-
-    /**
-     * get winner tips.
-     * @param winner
-     * @return winner tip. If draws, will return tie information.
-     */
-    public String printWinner(Character winner) {
-        if (winner == null) {
-            return "The battle is a tie, no one wins.";
+            this.winner = character2;
+            return WINNER_TIP + winner;
         } else {
-            return "The winner is: " + winner;
+            this.winner = null;
+            return TIE_TIP;
         }
     }
 
-    public static Character generateCharacter(String name) {
+    private static Character generateCharacter(String name) {
         Character c = new Character(ThreadLocalRandom.current().nextInt(100, 150),
                 ThreadLocalRandom.current().nextInt(100, 150));
         return c;
@@ -115,8 +113,7 @@ public class Battle {
         Battle battle = new Battle(character1, character2, gears);
         String dressProcess = battle.dress();
         System.out.println(dressProcess);
-        Character winner = battle.fight();
-        String winnerTip = battle.printWinner(winner);
+        String winnerTip = battle.fight();
         System.out.println(winnerTip);
     }
 }
