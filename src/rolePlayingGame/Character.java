@@ -1,6 +1,7 @@
 package rolePlayingGame;
 
-import java.awt.*;
+
+import java.util.List;
 
 public class Character {
     private final int initialAttack;
@@ -106,6 +107,11 @@ public class Character {
         }
         attack = this.computeAttack();
         defense = this.computeDefense();
+    }
+
+    public int choose(List<Gear> gearList) {
+        //TODO
+        return 0;
     }
 
 }
