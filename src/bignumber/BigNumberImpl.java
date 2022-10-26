@@ -1,5 +1,8 @@
 package bignumber;
 
+/**
+ * Implement Big Number in a double-direction linked list.
+ */
 public class BigNumberImpl implements BigNumber {
 
     private Node head;
@@ -77,6 +80,7 @@ public class BigNumberImpl implements BigNumber {
         }
         for (int i = 0; i < shiftNum; i++) {
             node.addNext(new Node(0));
+            node = node.next;
         }
     }
 
@@ -117,20 +121,12 @@ public class BigNumberImpl implements BigNumber {
      * @return
      */
     private Node getNodeFromRight(int position) {
-        Node node = head;
-        Node lastNode = head;
-        int l = 0;
-        while (node != null) {
-            node = node.next;
-            if (l > position) {
-                lastNode = lastNode.next;
-            }
-            l++;
+        Node node = tail;
+        while (position > 0 && node != null) {
+            node = node.prev;
+            position--;
         }
-        if (l <= position) {
-            return null;
-        }
-        return lastNode;
+        return node;
     }
 
     @Override
@@ -143,7 +139,7 @@ public class BigNumberImpl implements BigNumber {
     public void addDigit(int digit) {
         Node curNode = this.tail;
         int carry = 0;
-        while (digit != 0 && carry != 0) {
+        while (digit != 0 || carry != 0) {
             curNode.val = digit % 10 + curNode.val + carry;
             carry = curNode.val / 10;
             curNode.val = curNode.val % 10;
@@ -153,7 +149,7 @@ public class BigNumberImpl implements BigNumber {
             curNode = curNode.prev;
             digit /= 10;
         }
-        if (curNode.val == 0) {
+        if (curNode.val == 0 && curNode.next != null) {
             curNode = curNode.next;
             curNode.prev = null;
         }
@@ -182,6 +178,7 @@ public class BigNumberImpl implements BigNumber {
             last1 = last1.prev;
             last2 = last2.prev;
             currentHandleNode.addPrev(new Node(0));
+            currentHandleNode = currentHandleNode.prev;
         }
 
         Node iterNode = last1 == null ? last2 : last1;
@@ -193,6 +190,7 @@ public class BigNumberImpl implements BigNumber {
 
             iterNode = iterNode.prev;
             currentHandleNode.addPrev(new Node(0));
+            currentHandleNode = currentHandleNode.prev;
         }
 
         if (carry != 0) {
