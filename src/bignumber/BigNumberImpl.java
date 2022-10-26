@@ -137,6 +137,9 @@ public class BigNumberImpl implements BigNumber {
 
     @Override
     public void addDigit(int digit) {
+        if (digit > 9 || digit < 0) {
+            throw new IllegalArgumentException("Can only allow single digit");
+        }
         Node curNode = this.tail;
         int carry = 0;
         while (digit != 0 || carry != 0) {

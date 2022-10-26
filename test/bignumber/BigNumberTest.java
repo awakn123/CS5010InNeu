@@ -36,7 +36,9 @@ public class BigNumberTest {
     public void length() {
         BigNumber bigNumber = new BigNumberImpl();
         Assert.assertEquals(1, bigNumber.length());
-        bigNumber.addDigit(10);
+        bigNumber.addDigit(9);
+        Assert.assertEquals(1, bigNumber.length());
+        bigNumber.addDigit(9);
         Assert.assertEquals(2, bigNumber.length());
         BigNumber bigNumber2 = new BigNumberImpl("299290000088443");
         Assert.assertEquals(15, bigNumber2.length());
@@ -87,6 +89,8 @@ public class BigNumberTest {
         BigNumber bigNumber1 = new BigNumberImpl("8439218800");
         bigNumber1.addDigit(1);
         Assert.assertEquals("8439218801", bigNumber1.toString());
+        Assert.assertThrows(IllegalArgumentException.class, () -> bigNumber1.addDigit(-1));
+        Assert.assertThrows(IllegalArgumentException.class, () -> bigNumber1.addDigit(10));
     }
 
     /**
