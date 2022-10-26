@@ -4,17 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Battle class
+ * The main class for preparing a battle, fight for it, and show the result.
+ */
 public class Battle {
     private Character character1;
     private Character character2;
     private List<Gear> gearList;
 
+    /**
+     * Construct Battle class with 3 properties.
+     * @param character1
+     * @param character2
+     * @param gearList
+     */
     public Battle(Character character1, Character character2, List<Gear> gearList) {
         this.character1 = character1;
         this.character2 = character2;
         this.gearList = gearList;
     }
 
+    /**
+     * Characters take turn to pick up gears and dress for themselves.
+     * @return the dress process description.
+     */
     public String dress() {
         StringBuilder out = new StringBuilder();
         int length = gearList.size();
@@ -27,7 +41,11 @@ public class Battle {
         return out.toString();
     }
 
-    public Character battle() {
+    /**
+     * Fight process.
+     * @return the winner of the fight, if draws, return null;
+     */
+    public Character fight() {
         int damageFrom1 = character1.getAttack() - character2.getDefense();
         int damageFrom2 = character2.getAttack() - character1.getDefense();
         if (damageFrom1 > damageFrom2) {
@@ -38,6 +56,11 @@ public class Battle {
         return null;
     }
 
+    /**
+     * get winner tips.
+     * @param winner
+     * @return winner tip. If draws, will return tie information.
+     */
     public String printWinner(Character winner) {
         if (winner == null) {
             return "The battle is a tie, no one wins.";
@@ -57,7 +80,7 @@ public class Battle {
     private static String[] headGears = {"cap", "helmet"};
     private static String[] footWears = {"boot", "sneaker", "shoe"};
 
-    public static List<Gear> generateGearList(int amount) {
+    private static List<Gear> generateGearList(int amount) {
         List<Gear> gears = new ArrayList<>(amount);
         for (int i = 0; i < amount; i++) {
             Gear gear;
@@ -80,6 +103,11 @@ public class Battle {
         return gears;
     }
 
+    /**
+     * The whole process of the battle.
+     * Will prepare characters and gears in it, dress 2 characters, get the winner, and show winner tip.
+     * @param args
+     */
     public static void main(String[] args) {
         Character character1 = generateCharacter("John");
         Character character2 = generateCharacter("Wilson");
@@ -87,7 +115,7 @@ public class Battle {
         Battle battle = new Battle(character1, character2, gears);
         String dressProcess = battle.dress();
         System.out.println(dressProcess);
-        Character winner = battle.battle();
+        Character winner = battle.fight();
         String winnerTip = battle.printWinner(winner);
         System.out.println(winnerTip);
     }
