@@ -3,6 +3,9 @@ package bignumber;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class BigNumberTest {
@@ -81,6 +84,9 @@ public class BigNumberTest {
         BigNumber bigNumber = new BigNumberImpl("9999");
         bigNumber.addDigit(1);
         Assert.assertEquals("10000", bigNumber.toString());
+        BigNumber bigNumber1 = new BigNumberImpl("8439218800");
+        bigNumber1.addDigit(1);
+        Assert.assertEquals("8439218801", bigNumber1.toString());
     }
 
     /**
@@ -139,4 +145,5 @@ public class BigNumberTest {
         Assert.assertEquals(1, bigNumber1.compareTo(bigNumber3));
         Assert.assertEquals(-1, bigNumber3.compareTo(bigNumber1));
     }
+
 }

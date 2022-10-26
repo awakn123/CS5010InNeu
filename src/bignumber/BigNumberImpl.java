@@ -74,14 +74,14 @@ public class BigNumberImpl implements BigNumber {
         }
         if (shiftNum == 0)
             return;
-        Node node = head;
-        while (node.next != null) {
-            node = node.next;
-        }
+        if (this.head == this.tail && this.head.val == 0)
+            return;
+        Node node = tail;
         for (int i = 0; i < shiftNum; i++) {
             node.addNext(new Node(0));
             node = node.next;
         }
+        this.tail = node;
     }
 
     @Override
@@ -149,7 +149,7 @@ public class BigNumberImpl implements BigNumber {
             curNode = curNode.prev;
             digit /= 10;
         }
-        if (curNode.val == 0 && curNode.next != null) {
+        if (curNode.val == 0 && curNode.prev == null && curNode.next != null) {
             curNode = curNode.next;
             curNode.prev = null;
         }
