@@ -39,7 +39,8 @@ public class Battle {
         for (int i = 0; i < length; i++) {
             Character character = i % 2 == 0 ? character1 : character2;
             int chooseItem = character.choose(gearList);
-            gearList.remove(chooseItem);
+            Gear gear = gearList.remove(chooseItem);
+            character.pickUp(gear);
             out.append(character).append(System.lineSeparator());
         }
         return out.toString();
