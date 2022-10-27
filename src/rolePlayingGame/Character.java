@@ -242,7 +242,8 @@ public class Character {
                 }
             }
         }
-        int index2 = (gearList.indexOf(option.get(index)) + gearList.size()) % (gearList.size());
+        //int index2 = (gearList.indexOf(option.get(index)) + gearList.size()) % (gearList.size());
+        int index2 = gearList.indexOf(option.get(index));
         return index2;
     }
 

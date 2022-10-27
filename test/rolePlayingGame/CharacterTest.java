@@ -136,17 +136,59 @@ public class CharacterTest {
         gear.add(new HeadGear("blue", "hat", 5));
         gear.add(new HandGear("white", "glove", 10));
         gear.add(new HandGear("black", "sword", 100));
-        gear.add(new HeadGear("big", "hat", 20));//3
+        gear.add(new HeadGear("big", "hat", 20));
         gear.add(new Footwear("fancy", "skateboard", 10, 20));
         gear.add(new Footwear("black", "boots", 200, 300));
-        for (int i = 0; i < 6; i++) {
-            int chooseItem = a.choose(gear);
-            //System.out.println(chooseItem);
-            a.pickUp(gear.get(chooseItem));
-            gear.remove(gear.get(chooseItem));
-            String s = a.toString();
-            System.out.println(s);
-        }
+        //the first choice [blue hat, white glove, black sword, big hat, fancy skateboard, black boots] expected:black boots
+        int choose1 = a.choose(gear);
+        a.pickUp(gear.get(choose1));
+        Assert.assertEquals(5, choose1);
+        Assert.assertEquals("black boots", gear.get(choose1).getFullName());
+        gear.remove(gear.get(choose1));
+        //the second choice [blue hat, white glove, black sword, big hat, fancy skateboard] expected: black sword
+        int choose2 = a.choose(gear);
+        a.pickUp(gear.get(choose2));
+        Assert.assertEquals(2, choose2);
+        Assert.assertEquals("black sword", gear.get(choose2).getFullName());
+        gear.remove(gear.get(choose2));
+        //the third choice [blue hat, white glove, big hat, fancy skateboard] expected :fancy skateboard
+        int choose3 = a.choose(gear);
+        a.pickUp(gear.get(choose3));
+        Assert.assertEquals(3, choose3);
+        Assert.assertEquals("fancy skateboard", gear.get(choose3).getFullName());
+        gear.remove(gear.get(choose3));
+        //the fourth choice [blue hat, white glove, big hat] expected :white glove
+        int choose4 = a.choose(gear);
+        a.pickUp(gear.get(choose4));
+        Assert.assertEquals(1, choose4);
+        Assert.assertEquals("white glove", gear.get(choose4).getFullName());
+        gear.remove(gear.get(choose4));
+        //the fifth choice [blue hat, big hat] expected: big hat
+        int choose5 = a.choose(gear);
+        a.pickUp(gear.get(choose5));
+        Assert.assertEquals(1, choose5);
+        Assert.assertEquals("big hat", gear.get(choose5).getFullName());
+        gear.remove(gear.get(choose5));
+        //the sixth choice [blue hat] expected: blue hat
+        int choose6 = a.choose(gear);
+        a.pickUp(gear.get(choose6));
+        Assert.assertEquals(0, choose6);
+        Assert.assertEquals("blue hat", gear.get(choose6).getFullName());
+        gear.remove(gear.get(choose6));
+        //test toString method
+        String s = a.toString();
+        Assert.assertEquals(" Character name: Mary, Character gear: blue, big hat ," +
+                " black sword , white glove , black boots , fancy skateboard ,   Attack power = 420, Defense Strength =  545", s);
+
+// Use following code if needed to use following code. Don't forget to annotate the all the six steps above.
+//        for (int i = 0; i < 6; i++) {
+//            int chooseItem = a.choose(gear);
+//            //System.out.println(chooseItem);
+//            a.pickUp(gear.get(chooseItem));
+//            gear.remove(gear.get(chooseItem));
+//            String s = a.toString();
+//            System.out.println(s);
+//            }
     }
 
 }
