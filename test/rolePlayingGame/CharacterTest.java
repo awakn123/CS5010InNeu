@@ -4,11 +4,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class CharacterTest {
 
-
+    /**
+     * test the result of picking up headgear
+     * whether it should be combined with the other gear or added in the empty slot as the first one
+     * and judge whether the values of attack and defense are correct
+     */
     @Test
     public void pickUpHeadGear() {
         Character a = new Character(100, 200);
@@ -29,6 +36,11 @@ public class CharacterTest {
         assertNotNull(a.getHeadGear());
     }
 
+    /**
+     * test the result of picking up hand gear
+     * whether it should be combined with the other gear or added in the empty slot as the first one
+     * and judge whether the values of attack and defense are correct
+     */
     @Test
     public void pickUpHandGear() {
         Character a = new Character(50, 60);
@@ -58,6 +70,11 @@ public class CharacterTest {
         assertNotNull(a.getRightHandGear());
     }
 
+    /**
+     * test the result of picking up footwear
+     * whether it should be combined with the other gear or added in the empty slot as the first one
+     * and judge whether the values of attack and defense are correct
+     */
     @Test
     public void pickUpFootwear() {
         Character a = new Character(50, 60);
@@ -87,6 +104,10 @@ public class CharacterTest {
         assertNotNull(a.getRightFootwear());
     }
 
+    /**
+     * test the result of picking up different types of gear
+     * mainly to test the values of attack and defense
+     */
     @Test
     public void pickUpGear() {
         Character a = new Character(100, 200);
@@ -103,4 +124,29 @@ public class CharacterTest {
         Assert.assertEquals(114, a.getAttack());
         Assert.assertEquals(216, a.getDefense());
     }
+
+    /**
+     * test the method choose and toString
+     * see the order of the chosen gear and the display of each turn, including wearing, attack and defense
+     */
+    @Test
+    public void chooseTest() {
+        Character a = new Character("Mary", 100, 200);
+        List<Gear> gear = new ArrayList<>();
+        gear.add(new HeadGear("blue", "hat", 5));
+        gear.add(new HandGear("white", "glove", 10));
+        gear.add(new HandGear("black", "sword", 100));
+        gear.add(new HeadGear("big", "hat", 20));//3
+        gear.add(new Footwear("fancy", "skateboard", 10, 20));
+        gear.add(new Footwear("black", "boots", 200, 300));
+        for (int i = 0; i < 6; i++) {
+            int chooseItem = a.choose(gear);
+            //System.out.println(chooseItem);
+            a.pickUp(gear.get(chooseItem));
+            gear.remove(gear.get(chooseItem));
+            String s = a.toString();
+            System.out.println(s);
+        }
+    }
+
 }
