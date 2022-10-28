@@ -69,7 +69,7 @@ public class Battle {
     }
 
     private static Character generateCharacter(String name) {
-        Character c = new Character(ThreadLocalRandom.current().nextInt(100, 150),
+        Character c = new Character(name, ThreadLocalRandom.current().nextInt(100, 150),
                 ThreadLocalRandom.current().nextInt(100, 150));
         return c;
     }
