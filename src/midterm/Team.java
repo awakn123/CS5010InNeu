@@ -1,3 +1,5 @@
+package midterm;
+
 public class Team {
     private OrderedList<Engineer> engineerList;
     private int id;

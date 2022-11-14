@@ -1,3 +1,5 @@
+package midterm;
+
 public interface Engineer extends Comparable<Engineer> {
   // get the name
   String getName();

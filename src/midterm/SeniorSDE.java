@@ -1,3 +1,5 @@
+package midterm;
+
 public class SeniorSDE extends AbstractEngineer{
 
     private int numOfReports;

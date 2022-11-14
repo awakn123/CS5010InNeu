@@ -1,3 +1,5 @@
+package midterm;
+
 public abstract class AbstractEngineer implements Engineer {
 
     private String name;

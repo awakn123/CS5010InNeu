@@ -1,13 +1,15 @@
+package midterm;
+
 import java.util.Iterator;
 
 public class Test {
   public static void main(String[] args) {
     Department d = new DepartmentImpl();
-    // senior SDE to team 0
+    // senior midterm.SDE to team 0
     d.hire(new SeniorSDE("Tom", 100, 10), 0);
-    // junior SDE to team 0
+    // junior midterm.SDE to team 0
     d.hire(new JuniorSDE("Jack", 100,200), 0);
-    // junior SDE to team 2
+    // junior midterm.SDE to team 2
     d.hire(new JuniorSDE("Elon", 200, 200000), 2);
 
     System.out.println("Initial state....");

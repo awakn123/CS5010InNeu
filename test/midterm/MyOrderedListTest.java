@@ -1,7 +1,9 @@
+package midterm;
+
+import midterm.MyOrderedList;
+import midterm.OrderedList;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MyOrderedListTest {
 

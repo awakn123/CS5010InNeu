@@ -1,3 +1,5 @@
+package midterm;
+
 import java.util.Iterator;
 
 public class DepartmentImpl implements Department {

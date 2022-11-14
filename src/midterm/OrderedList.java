@@ -1,3 +1,5 @@
+package midterm;
+
 import java.util.function.Predicate;
 
 public interface OrderedList<E extends Comparable<E>> {

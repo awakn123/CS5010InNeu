@@ -1,3 +1,5 @@
+package midterm;
+
 public interface Department extends Iterable<Engineer> {
   // try to add `e` to the team of id `teamId`.
   // returns false if the team is full,

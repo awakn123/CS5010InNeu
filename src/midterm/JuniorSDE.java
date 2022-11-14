@@ -1,3 +1,5 @@
+package midterm;
+
 public class JuniorSDE extends AbstractEngineer {
     private int linesOfCode;
 

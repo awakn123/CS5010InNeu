@@ -1,3 +1,5 @@
+package midterm;
+
 import java.util.Arrays;
 import java.util.function.Predicate;
 
