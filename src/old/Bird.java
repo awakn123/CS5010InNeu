@@ -1,9 +1,11 @@
+package old;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Bird class. The class represents q bird.
- * The Bird has id, type, the food they eat, name, description and the aviary it lives in.
+ * old.Bird class. The class represents q bird.
+ * The old.Bird has id, type, the food they eat, name, description and the aviary it lives in.
  */
 public class Bird {
     private static int maxId = 1;

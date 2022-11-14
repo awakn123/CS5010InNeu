@@ -1,5 +1,6 @@
 
 
+import old.Person;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * A JUnit test class for the Person class.
+ * A JUnit test class for the old.Person class.
  */
 public class PersonTest {
 

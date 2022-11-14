@@ -1,5 +1,7 @@
+package old;
+
 /**
- * Define a type of Classification for the form of the bird type
+ * Define a type of old.Classification for the form of the bird type
  */
 public enum Classification {
     BirdsOfPrey("BirdsOfPrey", "Birds of prey all have sharp, hooked beaks with visible nostrils. They include hawks, eagles, and osprey."),
@@ -8,7 +10,7 @@ public enum Classification {
     Parrots("Parrots", "Parrots have a short, curved beak and are known for their intelligence and ability to mimic sounds. Many pet parrots can learn a vocabulary of up to 100 words and often adopt a single \"favorite\" saying.  They include the rose-ring parakeet, gray parrot, and sulfur-crested cockatoo."),
     Pigeons("Pigeons", "Pigeons are known for feeding their young bird milk, which are very similar to the milk of mammals. Found all over the world, there are several varieties that are extinct."),
     Shorebirds("Shorebirds", "Shorebirds include the great auk, horned puffin, and African Jacana. They live near water sources including wetlands, freshwater and saltwater shorelands, even the ocean."),
-    Waterfowl("Waterfowl", "Waterfowl are another classification that live near water sources (fresh or salt) and include ducks, swans, and geese.");
+    Waterfowl("old.Waterfowl", "old.Waterfowl are another classification that live near water sources (fresh or salt) and include ducks, swans, and geese.");
     private String name;
     private String characteristic;
 

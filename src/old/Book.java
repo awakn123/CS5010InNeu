@@ -1,3 +1,5 @@
+package old;
+
 /**
  * This class represents a book. A book has a title, an author and a price.
  */
@@ -7,7 +9,7 @@ public class Book {
     private float price;
 
     /**
-     * Construct a Book object that has the provided title, author and  price.
+     * Construct a old.Book object that has the provided title, author and  price.
      *
      * @param title  the title to be given to this book
      * @param author the author to be given to this book
@@ -42,7 +44,7 @@ public class Book {
     /**
      * Return the author of this object.
      *
-     * @return the author of this object as a @link{Person}
+     * @return the author of this object as a @link{old.Person}
      */
     public Person getAuthor() {
         return this.author;

@@ -1,14 +1,10 @@
-import org.hamcrest.MatcherAssert;
+import old.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import weather.WeatherReading;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class TrackTest {
 
@@ -21,7 +17,7 @@ public class TrackTest {
         track = new Track();
         this.eagleId = track.observeNewBird(new BirdType("eagle", false, 2,
                 Classification.BirdsOfPrey));
-        this.parrotId = track.observeNewBird(new BirdType("Parrot", false, 2,
+        this.parrotId = track.observeNewBird(new BirdType("old.Parrot", false, 2,
                 Classification.Parrots));
         this.waterBirdId = track.observeNewBird(new BirdType("Duck", false, 2,
                 Classification.Waterfowl));

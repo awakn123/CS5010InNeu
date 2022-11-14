@@ -1,13 +1,15 @@
+package old;
+
 /**
  * This class represents a person The person has a first name, last name and an year of birth.
  */
-class Person {
+public class Person {
     private String firstName;
     private String lastName;
     private int yearOfBirth;
 
     /**
-     * Constructs a Person object and initializes it to the given first name, last name and year of
+     * Constructs a old.Person object and initializes it to the given first name, last name and year of
      * birth.
      *
      * @param firstName   the first name of this person

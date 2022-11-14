@@ -1,5 +1,7 @@
+package old;
+
 /**
- * ShoreBird Class
+ * old.ShoreBird Class
  */
 public class ShoreBird extends WaterBird {
     public ShoreBird(BirdType birdType) {

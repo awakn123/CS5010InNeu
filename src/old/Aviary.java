@@ -1,8 +1,10 @@
+package old;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Aviary Class. Use for recording the id, location of the aviary and type of birds in it. Also use for adding the bird.
+ * old.Aviary Class. Use for recording the id, location of the aviary and type of birds in it. Also use for adding the bird.
  */
 public class Aviary {
     private static int maxId = 0;
@@ -21,7 +23,7 @@ public class Aviary {
     private String type;
 
     /**
-     * Construct an Aviary object that has the provided location
+     * Construct an old.Aviary object that has the provided location
      *
      * @param location the location of the given aviary
      */

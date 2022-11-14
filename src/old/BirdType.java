@@ -1,5 +1,7 @@
+package old;
+
 /**
- * BirdType Class. Use for recording the information of the bird type, including the name, extinct, number of wings and its classification
+ * old.BirdType Class. Use for recording the information of the bird type, including the name, extinct, number of wings and its classification
  */
 public class BirdType {
     private String name;
@@ -8,7 +10,7 @@ public class BirdType {
     private Classification classification;
 
     /**
-     * Construct a BirdType that has a provided name, extinct situation, number of wings and classification
+     * Construct a old.BirdType that has a provided name, extinct situation, number of wings and classification
      *
      * @param name           the name of the bird type
      * @param extinct        whether the bird type is extinct or not

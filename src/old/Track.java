@@ -1,10 +1,12 @@
+package old;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Class Track. Use for track the bird.
+ * Class old.Track. Use for track the bird.
  */
 public class Track {
     private Map<Integer, Bird> birdMap = new HashMap<>();
@@ -33,8 +35,8 @@ public class Track {
      * Observe new bird
      *
      * @param birdType the type of the bird
-     *                 If the bird type is parrot, create a bird whose type is a Parrot
-     *                 If the bird type is Shorebirds or Waterfowl, create a bird whose type is WaterBird
+     *                 If the bird type is parrot, create a bird whose type is a old.Parrot
+     *                 If the bird type is Shorebirds or old.Waterfowl, create a bird whose type is old.WaterBird
      *                 Otherwise create a bird whose type is the given bird type
      * @return the id of the bird
      */

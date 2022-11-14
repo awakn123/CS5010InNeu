@@ -1,9 +1,11 @@
+package old;
+
 /**
- * Waterfowl class
+ * old.Waterfowl class
  */
 public class Waterfowl extends WaterBird {
     /**
-     * Construct a Waterfowl Object that has provided bird type
+     * Construct a old.Waterfowl Object that has provided bird type
      *
      * @param birdType the bird type
      */
@@ -12,7 +14,7 @@ public class Waterfowl extends WaterBird {
     }
 
     /**
-     * Construct a Waterfowl Object that has provided name and bird type
+     * Construct a old.Waterfowl Object that has provided name and bird type
      *
      * @param name     the name of the waterfowl
      * @param birdType the bird type

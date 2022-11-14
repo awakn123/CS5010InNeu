@@ -1,8 +1,10 @@
+package old;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Parrot Class. Use for setting and getting their vocabulary and favourite saying.
+ * old.Parrot Class. Use for setting and getting their vocabulary and favourite saying.
  */
 public class Parrot extends Bird {
 
@@ -10,7 +12,7 @@ public class Parrot extends Bird {
     private String favorite;
 
     /**
-     * Construct a Parrot objet that has the provided bird type
+     * Construct a old.Parrot objet that has the provided bird type
      *
      * @param birdType the type of the bird
      */
@@ -19,7 +21,7 @@ public class Parrot extends Bird {
     }
 
     /**
-     * Construct a Parrot objet that has the provided name and bird type
+     * Construct a old.Parrot objet that has the provided name and bird type
      *
      * @param name     the name of the parrot
      * @param birdType the type of the parrot

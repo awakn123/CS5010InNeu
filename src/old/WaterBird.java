@@ -1,5 +1,7 @@
+package old;
+
 /**
- * WaterBird Class.
+ * old.WaterBird Class.
  */
 public class WaterBird extends Bird{
     private String waterBody;

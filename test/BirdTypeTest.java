@@ -1,3 +1,5 @@
+import old.BirdType;
+import old.Classification;
 import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +10,7 @@ public class BirdTypeTest {
 
     @Before
     public void set(){
-        birdtype= new BirdType( "hawk" , false, 2,Classification.BirdsOfPrey );
+        birdtype= new BirdType( "hawk" , false, 2, Classification.BirdsOfPrey );
 
     }
 

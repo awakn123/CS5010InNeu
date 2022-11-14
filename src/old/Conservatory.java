@@ -1,7 +1,9 @@
+package old;
+
 import java.util.*;
 
 /**
- * Conservatory Class. Use for getting food and aviary information in conservatory and
+ * old.Conservatory Class. Use for getting food and aviary information in conservatory and
  * printing information of given aviary and information of all the aviaries
  */
 public class Conservatory {
@@ -55,7 +57,7 @@ public class Conservatory {
     public String printMap() {
         String s = "";
         for (int i = 0; i < this.getAviaryList().size(); i++) {
-            s = s + "Aviary " + i + ":\n " + "\tLocation is " + this.getAviaryList().get(i).getLocation() +
+            s = s + "old.Aviary " + i + ":\n " + "\tLocation is " + this.getAviaryList().get(i).getLocation() +
                     ", Birds are " + this.getAviaryList().get(i).printBirdList() + "\n";
         }
         return s;
@@ -83,7 +85,7 @@ public class Conservatory {
             }
         }
         if (aviaryList.size() < 20) {
-            Aviary aviary = new Aviary("Aviary number " + aviaryList.size());
+            Aviary aviary = new Aviary("old.Aviary number " + aviaryList.size());
             aviary.addBird(bird);
             aviaryList.add(aviary);
             this.addFoodType(bird);
@@ -118,7 +120,7 @@ public class Conservatory {
     }
 
     /**
-     * get Current Food type quantities.
+     * get Current old.Food type quantities.
      *
      * @return
      */

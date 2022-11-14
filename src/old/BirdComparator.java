@@ -1,7 +1,9 @@
+package old;
+
 import java.util.Comparator;
 
 /**
- * BirdComparator Class
+ * old.BirdComparator Class
  * Compare bird by bird name.
  */
 public class BirdComparator implements Comparator<Bird> {
