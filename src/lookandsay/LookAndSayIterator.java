@@ -76,12 +76,17 @@ public class LookAndSayIterator implements RIterator<BigInteger> {
 
     private BigInteger getPrev() {
         char[] currentChars = this.currentValue.toString().toCharArray();
-        if (currentChars.length % 2 == 1) {
+        if (currentChars.length == 1) {
             return this.currentValue;
         }
         String prevStr = "";
-        for (int i = 0; i < currentChars.length; i += 2) {
+        for (int i = 0; i < currentChars.length - 1; i += 2) {
             int len = currentChars[i] - '0';
+            if (currentChars.length%2 == 1 && i == currentChars.length - 2) {
+                i++;
+                int len2 = currentChars[i] - '0';
+                len = len * 10 + len2;
+            }
             for (int j = 0; j < len; j++) {
                 prevStr += currentChars[i + 1];
             }
@@ -96,7 +101,7 @@ public class LookAndSayIterator implements RIterator<BigInteger> {
      */
     @Override
     public boolean hasPrevious() {
-        return this.currentValue.toString().length()%2 == 0 && this.currentValue.compareTo(this.endValue) <= 0;
+        return this.currentValue.toString().length() > 1 && this.currentValue.compareTo(this.endValue) <= 0;
     }
 
     /**
