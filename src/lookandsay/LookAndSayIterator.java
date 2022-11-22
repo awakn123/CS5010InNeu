@@ -101,7 +101,7 @@ public class LookAndSayIterator implements RIterator<BigInteger> {
      */
     @Override
     public boolean hasPrevious() {
-        return this.currentValue.toString().length() > 1 && this.currentValue.compareTo(this.endValue) <= 0;
+        return this.currentValue.toString().length() > 1;
     }
 
     /**
