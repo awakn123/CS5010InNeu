@@ -104,4 +104,8 @@ public class Room {
     }
     return sb.toString();
   }
+
+  public String getDescription() {
+    return this.description;
+  }
 }
